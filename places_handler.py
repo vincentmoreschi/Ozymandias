@@ -4,8 +4,7 @@ import os
 
 def test():
     key = get_key()
-    print(key)
-    gmaps = googlemaps.Client('AIzaSyBKY2D6nqIbolAmW7uBlPzt5k_YfHFadKI')
+    gmaps = googlemaps.Client(key)
 
     # Geocoding an address
     geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
