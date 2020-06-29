@@ -22,4 +22,5 @@ def test():
 
 def get_key():
     with open(os.path.dirname(__file__)+'/key.txt') as key:
+        print(key.readline())
         return key.readline()
