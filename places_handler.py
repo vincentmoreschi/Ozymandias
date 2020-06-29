@@ -3,8 +3,9 @@ from datetime import datetime
 import os
 
 def test():
-
-    gmaps = googlemaps.Client(key=get_key())
+    key = get_key()
+    print(key)
+    gmaps = googlemaps.Client('AIzaSyBKY2D6nqIbolAmW7uBlPzt5k_YfHFadKI')
 
     # Geocoding an address
     geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
@@ -18,9 +19,11 @@ def test():
                                          "Parramatta, NSW",
                                          mode="transit",
                                          departure_time=now)
+
     return directions_result;
 
 def get_key():
     with open(os.path.dirname(__file__)+'/key.txt') as key:
-        print(key.readline())
         return key.readline()
+if __name__ == '__main__':
+    print(test())
