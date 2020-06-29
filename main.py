@@ -7,10 +7,12 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/index')
+
+
 def root():
     places  = places_handler.test()
-    app.render_template('index.html',place = places)
-
+    return app.render_template('index.html', place = places)
 
 if __name__ == '__main__':
 
