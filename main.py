@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    test()
-
+    places  = test()
+    app.render_template('index.html',place = places)
 
 
 if __name__ == '__main__':

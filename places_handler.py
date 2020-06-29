@@ -18,6 +18,8 @@ def test():
                                          "Parramatta, NSW",
                                          mode="transit",
                                          departure_time=now)
+    return directions_result;
+
 def get_key():
     with open(os.path.dirname(__file__)+'/key.txt') as key:
         return key.readline()
