@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    places  = test()
+    places  = places_handler.test()
     app.render_template('index.html',place = places)
 
 
