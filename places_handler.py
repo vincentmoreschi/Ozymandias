@@ -9,17 +9,20 @@ def test():
 
     place = gmaps.places('France')
 
+    get_place_location(place)
+
     return place
 
 
 def get_key():
-    with open(os.path.dirname(__file__)+'/key.txt') as key:
+    with open(os.path.dirname(__file__)+'key.txt') as key:
         return key.readline()
 
 
-def place_parser(place):
-    parse = json.load(place)
+def get_place_location(place):
+    for key, value in place.items():
+            print(key)
 
 
 if __name__ == '__main__':
-    print(test())
+    test()
