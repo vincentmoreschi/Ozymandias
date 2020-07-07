@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import places_handler
 
 from flask import Flask, render_template
