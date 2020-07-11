@@ -5,6 +5,8 @@ from . form import NameForm
 from .. import db
 from ..models import user
 
-@main.route('/',methods=['GET,'POST'])
+@main.route('/',methods=['GET , 'POST'])
 def index():
-    form = NAME()
+    form = NameForm()
+    if form.validate_on_submit():
+        return redriect(url_for('.index'))
