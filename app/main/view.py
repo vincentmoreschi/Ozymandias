@@ -5,8 +5,10 @@ from . form import NameForm
 from .. import db
 from ..models import user
 
-@main.route('/',methods=['GET , 'POST'])
+
+@main.route('/', methods=['GET', 'POST'])
 def index():
     form = NameForm()
     if form.validate_on_submit():
-        return redriect(url_for('.index'))
+        return redirect(url_for('.index'))
+    return render_template('index.html')

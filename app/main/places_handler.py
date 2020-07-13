@@ -18,7 +18,7 @@ def test():
 
 
 def get_key():
-    with open(os.path.dirname(__file__)+'key.txt') as key:
+    with open(os.path.dirname(__file__) + '/key.txt') as key:
         return key.readline()
 
 
@@ -27,20 +27,19 @@ def get_place_location(place):
     key = get_key()
     gmaps = googlemaps.Client(key)
     for key, value in place['results'][0].items():
-        #print(type(value))
+        # print(type(value))
         if isinstance(value, dict):
             print(value)
             center = value['location']
 
-    print(center)
+    print(center['lat'],center['lng'])
 
-    f = open('local_filename', 'wb')
-    for chunk in gmaps.static_map(size=(400, 400), center=(center['lat'], center['lng']),
-                                        zoom=15):
+    f = open('../static/local_filename.PNG', 'wb')
+    for chunk in gmaps.static_map(size=(400, 400), center=(str(center['lat']),str(center['lng'])), zoom=10):
+
         if chunk:
             f.write(chunk)
-        f.close()
-
+    f.close()
 
 
 if __name__ == '__main__':
