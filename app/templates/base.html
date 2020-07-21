@@ -1,9 +1,11 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Ozymandias</title>
   </head>
+{% block form %}
 <form method="POST">
   {{ form.name.label }} {{ form.name() }}
   {{ form.submit() }}
+</form>
+{% endblock %}  
 </html>

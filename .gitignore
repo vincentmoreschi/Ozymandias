@@ -4,3 +4,5 @@ notes.txt
 key.txt
 pyenv.cfg
 __pycache__
+*.pyc
+.env

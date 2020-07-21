@@ -6,20 +6,22 @@ import json
 import requests
 
 
+def get_key():
+    with open(os.path.dirname(__file__) + '/key.txt') as key:
+        return key.readline()
+
+
+key = get_key()
+gmaps = googlemaps.Client(key)
+
+
 def test():
-    key = get_key()
-    gmaps = googlemaps.Client(key)
 
     place = gmaps.places('Orlando')
 
     get_place_location(place)
 
     return place
-
-
-def get_key():
-    with open(os.path.dirname(__file__) + '/key.txt') as key:
-        return key.readline()
 
 
 def get_place_location(place):

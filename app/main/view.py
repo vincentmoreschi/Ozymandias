@@ -1,14 +1,26 @@
-from datetime import datettime
-from flask import render_template, sesssion, redirect, url_for
+from datetime import datetime
+from flask import render_template, session, redirect, url_for
 from . import main
-from . form import NameForm
+from . forms import SearchForm
 from .. import db
-from ..models import user
+from . import places_handler
+
+#from ..models import user
+
+query = ''
 
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    form = NameForm()
+    form = SearchForm()
     if form.validate_on_submit():
-        return redirect(url_for('.index'))
-    return render_template('index.html')
+        query = form.name.data
+        places_handler.get_place_location(query)
+        return redirect(url_for('/map'))
+    return render_template('index.html', form=form)
+
+
+@main.route('/map')
+def map():
+    map = places_handler.get_place_location(query)
+    return render_template('map.html', map = map )
