@@ -4,6 +4,7 @@
     <title>Ozymandias</title>
   </head>
 <form method="POST">
+  {{ form.hidden_tag() }}
   {{ form.name.label }} {{ form.name() }}
   {{ form.submit() }}
 </html>

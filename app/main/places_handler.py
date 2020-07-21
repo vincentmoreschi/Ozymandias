@@ -24,10 +24,12 @@ def test():
     return place
 
 
-def get_place_location(place):
-    center = ''
+def get_place_location(query):
     key = get_key()
     gmaps = googlemaps.Client(key)
+    place = gmaps.places(query)
+    center = ''
+
     for key, value in place['results'][0].items():
         # print(type(value))
         if isinstance(value, dict):
@@ -36,7 +38,7 @@ def get_place_location(place):
 
     print(center['lat'],center['lng'])
 
-    f = open('../static/local_filename.PNG', 'wb')
+    f = open('app/static/local_filename.PNG', 'wb')
     for chunk in gmaps.static_map(size=(400, 400), center=(str(center['lat']),str(center['lng'])), zoom=10):
 
         if chunk:

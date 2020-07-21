@@ -13,14 +13,16 @@ query = ''
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = SearchForm()
+    print(form.validate_on_submit())
     if form.validate_on_submit():
         query = form.name.data
+        print("yter")
+
         places_handler.get_place_location(query)
-        return redirect(url_for('/map'))
+        return redirect(url_for('.map'))
     return render_template('index.html', form=form)
 
 
 @main.route('/map')
 def map():
-    map = places_handler.get_place_location(query)
-    return render_template('map.html', map = map )
+    return render_template('map.html')
