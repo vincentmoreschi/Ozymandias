@@ -12,6 +12,7 @@ class Config:
 
 class DevlopmentConfig(Config):
     FLASK_DEBUG = True
+    FLASK_ENV = "development"
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 

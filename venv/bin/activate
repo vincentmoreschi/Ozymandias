@@ -39,6 +39,8 @@ deactivate nondestructive
 
 VIRTUAL_ENV="/mnt/c/Users/Vincent/Documents/Ozymandias/venv"
 export VIRTUAL_ENV
+export FLASK_APP="ozymandias.py"
+export FLASK_DEBUG=1
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/bin:$PATH"

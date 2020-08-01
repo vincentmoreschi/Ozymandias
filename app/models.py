@@ -18,4 +18,6 @@ class User(db.Model):
 
 
 class MapData(db.Model):
-    user = db.Column(db.Integer, db.ForeignKey('User.'))
+    __tablename__ = 'map'
+    uuid = db.Column(db.String, primary_key=True)
+    #image_file = db.Column(db.String,unique=True, index=True)
