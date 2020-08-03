@@ -53,6 +53,7 @@ def get_place_location(query):
 
             f.write(chunk)
     f.close()
+
     return str(photostring)+ ".png"
 
 if __name__ == '__main__':
